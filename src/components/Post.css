@@ -1,0 +1,23 @@
+.Post {
+    width: 75vh;
+    text-align: center;
+    margin: 25px;
+    box-shadow: 0px 5px 10px black;
+}
+
+img {
+    width: 85%;
+}
+
+#votes {
+    margin: 20px;
+}
+
+#post-contents {
+    display: flex;
+}
+
+#post-info {
+    display: flex;
+    justify-content: space-around;
+}

@@ -15,6 +15,11 @@ html {
   box-shadow: 0px 5px 20px black;
 }
 
+.App-body {
+  display: flex;
+  justify-content: center;
+}
+
 em {
   color: #eda031;
 }
