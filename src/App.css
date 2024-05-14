@@ -1,7 +1,7 @@
 html {
   text-align: center;
-  background-color: #272946;
-  color: #e7ffee;
+  background-color: #332c50;
+  color: #e2f3e4;
 }
 
 .App-header {
@@ -12,14 +12,16 @@ html {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  box-shadow: 0px 5px 20px black;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
 }
 
 .App-body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 em {
-  color: #eda031;
+  color: #94e344;
 }

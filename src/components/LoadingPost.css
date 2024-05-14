@@ -1,5 +1,5 @@
-.Post {
-    width: 80vh;
+.LoadingPost {
+    width: 75vh;
     text-align: center;
     margin: 25px;
     background-color: #46878f;
@@ -7,8 +7,15 @@
     border-radius: 10px;
 }
 
-img {
+.LoadingPost p,
+.LoadingPost h3 {
+    background-color: #326d75;
+}
+
+.LoadingPost img {
     width: 85%;
+    height: 50%;
+    background-color: #326d75;
 }
 
 #votes {
