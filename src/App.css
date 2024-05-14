@@ -33,3 +33,12 @@ button {
   border-radius: 20px;
   padding: 10px;
 }
+
+input {
+  text-align: center;
+  background-color: #222323;
+  color: #f0f6f0;
+  border: none;
+  padding: 10px;
+  font-size: 1.1rem;
+}

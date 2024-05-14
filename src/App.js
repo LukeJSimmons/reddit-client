@@ -1,37 +1,38 @@
 import './App.css';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Post from './components/Post';
 import LoadingPost from './components/LoadingPost';
-
-import image from './images/NMELogo.png';
 
 function App() {
 
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState('popular');
+  const [pageInput, setPageInput] = useState('popular');
 
-  async function getPage() {
-    const response = await fetch(`https://www.reddit.com/r/${page}/.json`);
-
-    if (!response.ok) {
-      throw new Error('Response is not ok');
+  useEffect(() => {
+    async function getPage() {
+      setIsLoading(true);
+      try {
+        const response = await fetch(`https://www.reddit.com/r/${page}/.json`);
+  
+        if (!response.ok) {
+          throw new Error('Response is not ok');
+        }
+    
+        const data = await response.json();
+        setPosts(data.data.children.map(post => post.data));
+      } catch (error) {
+        console.log('Error fetching data:', error);
+      } finally {
+        setIsLoading(false);
+      }
     }
-
-    const data = await response.json();
-
-    setIsLoading(false);
-
-    return await data.data.children.map(post => post.data);
-  }
-
-  getPage()
-  .then(posts => {
-    setPosts(posts);
-    // console.log(posts);
-  });
+  
+    getPage();
+  }, [page]);
 
   if (isLoading) {
     return (
@@ -47,12 +48,26 @@ function App() {
     )
   }
 
+  function handlePageChange(event) {
+    setPageInput(event.target.value);
+  }
 
+  function handleKeyDown(event) {
+    if (event.key === 'Enter') {
+      setPage(pageInput);
+    }
+  }
 
   return (
     <div className="App">
       <header className="App-header">
         <h1><em>Not-</em>Reddit</h1>
+        <input 
+          onChange={handlePageChange} 
+          value={pageInput} 
+          onKeyDown={handleKeyDown}
+          placeholder='search'
+        />
       </header>
       <body className="App-body">
         {
