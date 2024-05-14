@@ -11,9 +11,10 @@ function App() {
 
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [page, setPage] = useState('popular');
 
   async function getPage() {
-    const response = await fetch('https://www.reddit.com/r/popular/.json');
+    const response = await fetch(`https://www.reddit.com/r/${page}/.json`);
 
     if (!response.ok) {
       throw new Error('Response is not ok');
@@ -45,6 +46,8 @@ function App() {
       </div>
     )
   }
+
+
 
   return (
     <div className="App">

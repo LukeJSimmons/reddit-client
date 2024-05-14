@@ -1,7 +1,7 @@
 html {
   text-align: center;
-  background-color: #332c50;
-  color: #e2f3e4;
+  background-color: #222323;
+  color: #f0f6f0;
 }
 
 .App-header {
@@ -23,5 +23,13 @@ html {
 }
 
 em {
-  color: #94e344;
+  color: #f0f6f0;
+}
+
+button {
+  background-color: #222323;
+  color: #f0f6f0;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
 }
