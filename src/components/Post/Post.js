@@ -13,7 +13,7 @@ function Post(props) {
                     <button >down</button>
                 </div>
                 <div>
-                    <h3>{props.title}</h3>
+                    <a href="../pages/PostPage"><h3>{props.title}</h3></a>
                     <img src={props.image} alt="" />
                 </div>
             </div>
