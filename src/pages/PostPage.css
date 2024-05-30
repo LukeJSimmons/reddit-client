@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+#Post {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100vh;
+    text-align: center;
+    padding: 5vh;
+    background-color: #222323;
+    color: #f0f6f0;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+img {
+    width: 50%;
+}
+
+#votes {
+    margin: 20px;
+}
+
+#post-contents {
+    display: flex;
+}
+
+#post-info {
+    display: flex;
+    justify-content: space-around;
+}

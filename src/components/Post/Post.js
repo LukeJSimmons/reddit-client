@@ -2,6 +2,8 @@ import React from "react";
 
 import './Post.css';
 
+import { Link } from "react-router-dom";
+
 function Post(props) {
 
     return (
@@ -13,7 +15,7 @@ function Post(props) {
                     <button >down</button>
                 </div>
                 <div>
-                    <a href="../pages/PostPage"><h3>{props.title}</h3></a>
+                    <Link to={"/"+props.postId}><h3>{props.title}</h3></Link>
                     <img src={props.image} alt="" />
                 </div>
             </div>

@@ -1,30 +1,76 @@
 import React from "react";
 
-import '../components/Post.css';
+import './PostPage.css';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import LoadingPost from "../components/LoadingPost/LoadingPost";
 
-function PostPage(props) {
+function PostPage() {
 
-    return (
-        <div className="Post">
-            <div id="post-contents">
-                <div id="votes">
-                    <button >up</button>
-                    <p>{props.votes}</p>
-                    <button >down</button>
-                </div>
-                <div>
-                    <h3>{props.title}</h3>
-                    <img src={props.image} alt="" />
-                    <p>{props.selftext}</p>
+    const [posts, setPosts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [page, setPage] = useState('popular');
+
+    useEffect(() => {
+        async function getPage() {
+          setIsLoading(true);
+          try {
+            const response = await fetch(`https://www.reddit.com/r/${page}/.json`);
+      
+            if (!response.ok) {
+              throw new Error('Response is not ok');
+            }
+        
+            const data = await response.json();
+            setPosts(data.data.children.map(post => post.data));
+          } catch (error) {
+            console.log('Error fetching data:', error);
+          } finally {
+            setIsLoading(false);
+          }
+        }
+      
+        getPage();
+    }, [page]);
+
+    function getPost(id) {
+    return posts.filter(post => post.id === id)[0];
+    }
+
+    const {id} = useParams();
+
+    console.log(getPost(id));
+    if (getPost(id)) {
+        const post = getPost(id);
+
+        const pastDate = new Date(post.created * 1000).getTime();
+        const currentDate = new Date().getTime();
+
+        let time = Math.floor((currentDate-pastDate)/(1000*60*60));
+
+        return (
+            <div className="container">
+                <div id="Post">
+                    <div>
+                        <h3>{post.title}</h3>
+                        <img src={post.thumbnail} alt="" />
+                        <p>{post.selftext}</p>
+                    </div>
+                    <div id="post-info">
+                        <p>Posted by {post.author}</p>
+                        <p>{time} Hours Ago</p>
+                        <p>Comments: {post.num_comments}</p>
+                    </div>
                 </div>
             </div>
-            <div id="post-info">
-                <p>Posted by {props.author}</p>
-                <p>{props.date} Hours Ago</p>
-                <p>Comments: {props.comments}</p>
+        );
+    } else {
+        return (
+            <div className="container">
+                <LoadingPost />
             </div>
-        </div>
-    );
+        );
+    }
 }
 
 export default PostPage;
