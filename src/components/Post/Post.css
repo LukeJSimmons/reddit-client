@@ -10,9 +10,9 @@
   }
 
 .Post {
-    width: 80vh;
+    width: 80vw;
     text-align: center;
-    margin: 25px;
+    margin: 3vh;
     background-color: #222323;
     color: #f0f6f0;
     box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.5);
@@ -25,7 +25,7 @@ img {
 }
 
 #votes {
-    margin: 20px;
+    margin: 1vh;
 }
 
 #post-contents {
@@ -35,4 +35,34 @@ img {
 #post-info {
     display: flex;
     justify-content: space-around;
+}
+
+@media screen and (max-width: 450px) {
+  .Post {
+    width: 100%;
+    margin: 1vh;
+    text-align: center;
+  }
+  #post-contents {
+    padding: 0 3vw;
+    justify-content: center;
+  }
+  #post-info {
+    padding: 0 3vw;
+  }
+  img {
+    width: 100%;
+  }
+  #post-info p {
+    margin: 1vh 0;
+  }
+  #votes {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .Post {
+    width: 80vh;
+  }
 }

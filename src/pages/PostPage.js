@@ -17,7 +17,7 @@ function PostPage() {
         async function getPage() {
           setIsLoading(true);
           try {
-            const response = await fetch(`https://www.reddit.com/r/${page}/.json`);
+            const response = await fetch(`https://www.reddit.com/${page}`);
       
             if (!response.ok) {
               throw new Error('Response is not ok');
@@ -56,6 +56,7 @@ function PostPage() {
                     <div id="postpage-contents">
                         <h3>{post.title}</h3>
                         <p>{post.selftext}</p>
+                        <img id="midImg" src={post.thumbnail} alt="" />
                         <a href={post.url} target="_blank">Read Full Post</a>
                         <div id="postpage-info">
                             <p>Posted by {post.author}</p>
@@ -63,7 +64,7 @@ function PostPage() {
                             <p>Comments: {post.num_comments}</p>
                         </div>
                     </div>
-                    {post.thumbnail === 'self' ? (<div></div>) : (<img src={post.thumbnail} alt="" />)}
+                    {post.thumbnail === 'self' ? (<div></div>) : (<img id="rightImg" src={post.thumbnail} alt="" />)}
                 </div>
             </div>
         );

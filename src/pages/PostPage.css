@@ -28,18 +28,25 @@
     animation: fade-up 0.1s;
 }
 
-#PostPage img {
+#rightImg {
+    display: block;
     width: 100%;
 }
 
+#midImg {
+    display: none;
+    width: 100%;
+    margin-bottom: 2vh;
+}
+
 #votes {
-    margin: 20px;
+    margin: 1vh;
 }
 
 #postpage-contents {
     display: flex;
     flex-direction: column;
-    padding: 3vh;
+    padding: 3vw;
     align-items: center;
     justify-content: space-between;
 }
@@ -50,5 +57,20 @@
 }
 
 #postpage-info p {
-    padding: 0 3vh;
+    padding: 0 3vw;
+}
+
+@media screen and (max-width: 450px) {
+    #PostPage {
+        width: 100%;
+    }
+    #votes {
+        display: none;
+    }
+    #midImg {
+        display: block;
+    }
+    #rightImg {
+        display: none;
+    }
 }

@@ -18,7 +18,7 @@ function HomePage() {
     async function getPage() {
       setIsLoading(true);
       try {
-        const response = await fetch(`https://www.reddit.com/r/${page}/.json`);
+        const response = await fetch(`https://www.reddit.com/${page}`);
 
         setIsOk(response.ok);
   

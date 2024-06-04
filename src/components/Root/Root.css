@@ -5,12 +5,13 @@ html {
 }
 
 .App-header {
+  width: 100%;
   min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: top;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(8px + 2vmin);
   color: white;
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
 }
@@ -35,7 +36,7 @@ input {
   background-color: #222323;
   color: #f0f6f0;
   border: none;
-  padding: 10px;
+  padding: 1vh;
   font-size: 1.1rem;
   transition-property: background-color;
   transition-duration: 0.3s;
@@ -55,4 +56,50 @@ a {
 
 a:hover {
   color: #f0f6f0;
+}
+
+#subreddits {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -1vh;
+  margin-bottom: 1vh;
+}
+
+#subreddits input {
+  appearance: none;
+  width: 10vh;
+}
+
+#subreddits input:checked {
+  background-color: #f0f6f0;
+}
+
+#subreddits label {
+  margin: 0 2vh;
+}
+
+#otherInput {
+  width: 10%;
+  margin: 0 2vh;
+}
+
+#popular {
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #f0f6f0;
+  color: #222323;
+  transition-property: color, background-color;
+  transition-duration: 0.3s;
+}
+
+#popular:hover,
+#popular:disabled {
+  background-color: #2f3030;
+  color: #f0f6f0;
+}
+
+#popular:active {
+  background-color: #f0f6f0;
+  color: #2f3030;
 }

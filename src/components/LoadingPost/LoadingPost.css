@@ -44,3 +44,19 @@
     display: flex;
     justify-content: space-around;
 }
+
+@media screen and (max-width: 450px) {
+    .LoadingPost {
+      width: 100%;
+    }
+    #post-contents {
+      padding-right: 2vh;
+      justify-content: center;
+    }
+    img {
+      width: 100%;
+    }
+    #post-info p {
+      margin: 1vh 0;
+    }
+  }

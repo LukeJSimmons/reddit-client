@@ -20,9 +20,9 @@ function Post(props) {
                 </div>
             </div>
             <div id="post-info">
-                <p>Posted by {props.author}</p>
+                <p>Posted by<br/>{props.author}</p>
                 <p>{props.date} Hours Ago</p>
-                <p>Comments: {props.comments}</p>
+                <p>{props.comments}<br/>Comments</p>
             </div>
         </div>
     );
