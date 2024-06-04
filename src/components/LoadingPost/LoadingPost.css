@@ -1,3 +1,14 @@
+/* Keyframes */
+@keyframes fade-up {
+    0% {
+      transform: scale(0.3);
+    }
+    100% {
+      color: #f0f6f0;
+      transform: scale(1);
+    }
+  }
+
 .LoadingPost {
     width: 75vh;
     text-align: center;
@@ -5,17 +16,20 @@
     background-color: #222323;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
+    animation: fade-up 0.1s;
 }
 
 .LoadingPost p,
-.LoadingPost h3 {
-    background-color: #222323;
+.LoadingPost h3,
+.LoadingPost button {
+    background-color: #383838;
+    color: #383838;
 }
 
 .LoadingPost img {
     width: 85%;
     height: 50%;
-    background-color: #222323;
+    background-color: #383838;
 }
 
 #votes {

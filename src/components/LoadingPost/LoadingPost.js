@@ -14,7 +14,6 @@ function LoadingPost() {
                 </div>
                 <div>
                     <h3>_____________________________________________</h3>
-                    <img alt="" />
                 </div>
             </div>
             <div id="post-info">

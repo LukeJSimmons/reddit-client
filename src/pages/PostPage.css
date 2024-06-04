@@ -1,3 +1,14 @@
+/* Keyframes */
+@keyframes fade-up {
+    0% {
+      transform: scale(0.3);
+    }
+    100% {
+      color: #f0f6f0;
+      transform: scale(1);
+    }
+  }
+
 .container {
     display: flex;
     justify-content: center;
@@ -13,6 +24,8 @@
     color: #f0f6f0;
     box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.5);
     margin-top: 5vh;
+    border-radius: 10px;
+    animation: fade-up 0.1s;
 }
 
 #PostPage img {

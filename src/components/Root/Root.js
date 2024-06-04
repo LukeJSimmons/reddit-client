@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 
 function Root() {
 
-  const [page, setPage] = useState('popular');
-  const [pageInput, setPageInput] = useState('popular');
+  const [page, setPage] = useState('home');
+  const [pageInput, setPageInput] = useState('home');
 
   function handlePageChange(event) {
     setPageInput(event.target.value);
@@ -30,7 +30,7 @@ function Root() {
         placeholder='search'
       />
     </header>
-    <Outlet />
+    <Outlet context={page} />
     </>
   );
 }

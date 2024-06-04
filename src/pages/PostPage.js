@@ -1,5 +1,7 @@
 import React from "react";
 
+import { useOutletContext } from 'react-router-dom';
+
 import './PostPage.css';
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -9,7 +11,7 @@ function PostPage() {
 
     const [posts, setPosts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [page, setPage] = useState('popular');
+    const page = useOutletContext();
 
     useEffect(() => {
         async function getPage() {
@@ -34,7 +36,7 @@ function PostPage() {
     }, [page]);
 
     function getPost(id) {
-    return posts.filter(post => post.id === id)[0];
+        return posts.filter(post => post.id === id)[0];
     }
 
     const {id} = useParams();
@@ -54,12 +56,12 @@ function PostPage() {
                     <div id="postpage-contents">
                         <h3>{post.title}</h3>
                         <p>{post.selftext}</p>
+                        <a href={post.url} target="_blank">Read Full Post</a>
                         <div id="postpage-info">
                             <p>Posted by {post.author}</p>
                             <p>{time}h Ago</p>
                             <p>Comments: {post.num_comments}</p>
                         </div>
-                        <a href={post.url} target="_blank">Read Full Post</a>
                     </div>
                     {post.thumbnail === 'self' ? (<div></div>) : (<img src={post.thumbnail} alt="" />)}
                 </div>

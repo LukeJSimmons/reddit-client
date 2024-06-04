@@ -1,3 +1,14 @@
+/* Keyframes */
+@keyframes fade-up {
+    0% {
+      transform: scale(0.3);
+    }
+    100% {
+      color: #f0f6f0;
+      transform: scale(1);
+    }
+  }
+
 .Post {
     width: 80vh;
     text-align: center;
@@ -6,6 +17,7 @@
     color: #f0f6f0;
     box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
+    animation: fade-up 0.1s;
 }
 
 img {

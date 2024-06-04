@@ -37,8 +37,22 @@ input {
   border: none;
   padding: 10px;
   font-size: 1.1rem;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+}
+
+input:hover {
+  background-color: #2f3030;
 }
 
 a {
   color: cornflowerblue;
+  font-weight: bold;
+  text-decoration: none;
+  transition-property: color;
+  transition-duration: 0.3s;
+}
+
+a:hover {
+  color: #f0f6f0;
 }

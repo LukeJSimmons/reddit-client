@@ -1,21 +1,26 @@
 import '../components/Root/Root.css';
 
 import { useState, useEffect } from 'react';
+import { useOutletContext } from 'react-router-dom';
 
 import Post from '../components/Post/Post';
 import LoadingPost from '../components/LoadingPost/LoadingPost';
 
 function HomePage() {
 
+  const page = useOutletContext();
+
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [page, setPage] = useState('popular');
+  const [isOk, setIsOk] = useState(true);
 
   useEffect(() => {
     async function getPage() {
       setIsLoading(true);
       try {
         const response = await fetch(`https://www.reddit.com/r/${page}/.json`);
+
+        setIsOk(response.ok);
   
         if (!response.ok) {
           throw new Error('Response is not ok');
@@ -49,7 +54,7 @@ function HomePage() {
         const pastDate = new Date(post.created * 1000).getTime();
         const currentDate = new Date().getTime();
 
-        return (<Post postId={post.id} title={post.title} author={post.author} comments={post.num_comments} votes={post.ups} image={post.thumbnail} date={Math.floor((currentDate-pastDate)/(1000*60*60))} />)
+        return isOk ? (<Post postId={post.id} title={post.title} author={post.author} comments={post.num_comments} votes={post.ups} image={post.thumbnail} date={Math.floor((currentDate-pastDate)/(1000*60*60))} />) : (<p>Error loading page: Try again later</p>)
         })}
     </body>
   );
