@@ -22,10 +22,6 @@ html {
   align-items: center;
 }
 
-em {
-  color: #f0f6f0;
-}
-
 button {
   background-color: #222323;
   color: #f0f6f0;
@@ -41,4 +37,8 @@ input {
   border: none;
   padding: 10px;
   font-size: 1.1rem;
+}
+
+a {
+  color: cornflowerblue;
 }

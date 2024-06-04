@@ -3,31 +3,39 @@
     justify-content: center;
 }
 
-#Post {
+#PostPage {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: space-between;
-    width: 100vh;
     text-align: center;
-    padding: 5vh;
+    width: 60%;
     background-color: #222323;
     color: #f0f6f0;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.5);
+    margin-top: 5vh;
 }
 
-img {
-    width: 50%;
+#PostPage img {
+    width: 100%;
 }
 
 #votes {
     margin: 20px;
 }
 
-#post-contents {
+#postpage-contents {
     display: flex;
+    flex-direction: column;
+    padding: 3vh;
+    align-items: center;
+    justify-content: space-between;
 }
 
-#post-info {
+#postpage-info {
     display: flex;
     justify-content: space-around;
+}
+
+#postpage-info p {
+    padding: 0 3vh;
 }

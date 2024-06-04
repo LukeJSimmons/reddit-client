@@ -50,17 +50,18 @@ function PostPage() {
 
         return (
             <div className="container">
-                <div id="Post">
-                    <div>
+                <div id="PostPage">
+                    <div id="postpage-contents">
                         <h3>{post.title}</h3>
-                        <img src={post.thumbnail} alt="" />
                         <p>{post.selftext}</p>
+                        <div id="postpage-info">
+                            <p>Posted by {post.author}</p>
+                            <p>{time}h Ago</p>
+                            <p>Comments: {post.num_comments}</p>
+                        </div>
+                        <a href={post.url} target="_blank">Read Full Post</a>
                     </div>
-                    <div id="post-info">
-                        <p>Posted by {post.author}</p>
-                        <p>{time} Hours Ago</p>
-                        <p>Comments: {post.num_comments}</p>
-                    </div>
+                    {post.thumbnail === 'self' ? (<div></div>) : (<img src={post.thumbnail} alt="" />)}
                 </div>
             </div>
         );
