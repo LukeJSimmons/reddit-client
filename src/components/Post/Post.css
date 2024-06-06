@@ -28,6 +28,18 @@ img {
     margin: 1vh;
 }
 
+#votes img {
+  width: 4vh;
+}
+
+#votes #up {
+  margin-bottom: -1vh;
+}
+
+#votes #down {
+  transform: rotate(180deg);
+}
+
 #post-contents {
     display: flex;
 }

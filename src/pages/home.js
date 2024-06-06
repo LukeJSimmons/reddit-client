@@ -29,6 +29,7 @@ function HomePage() {
         const data = await response.json();
         setPosts(data.data.children.map(post => post.data));
       } catch (error) {
+        setIsOk(false);
         console.log('Error fetching data:', error);
       } finally {
         setIsLoading(false);
@@ -47,8 +48,15 @@ function HomePage() {
     )
   }
 
-  return (
-    <body className="App-body">
+  if (posts.length === 0) { // For an invalid search input
+    return (<p>No results</p>);
+  } 
+  else if (isOk === false) { // For an invalid Subreddit input
+    return (<p>Invalid Input</p>);
+  } 
+  else {
+    return (
+      <body className="App-body">
       {
       posts.map(post => {
         const pastDate = new Date(post.created * 1000).getTime();
@@ -57,7 +65,8 @@ function HomePage() {
         return isOk ? (<Post postId={post.id} title={post.title} author={post.author} comments={post.num_comments} votes={post.ups} image={post.thumbnail} date={Math.floor((currentDate-pastDate)/(1000*60*60))} />) : (<p>Error loading page: Try again later</p>)
         })}
     </body>
-  );
+    );
+  }
 }
 
 export default HomePage;

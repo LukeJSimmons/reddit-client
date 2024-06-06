@@ -2,6 +2,8 @@ import React from "react";
 
 import './Post.css';
 
+import Arrow from '../../images/Arrow.png';
+
 import { Link } from "react-router-dom";
 
 function Post(props) {
@@ -10,9 +12,9 @@ function Post(props) {
         <div className="Post">
             <div id="post-contents">
                 <div id="votes">
-                    <button >up</button>
+                    <img id="up" className="arrow" src={Arrow} />
                     <p>{props.votes}</p>
-                    <button >down</button>
+                    <img id="down" className="arrow" src={Arrow} />
                 </div>
                 <div>
                     <Link to={"/"+props.postId}><h3>{props.title}</h3></Link>
