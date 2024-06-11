@@ -41,8 +41,7 @@ function PostPage() {
 
     const {id} = useParams();
 
-    console.log(getPost(id));
-    if (getPost(id)) {
+    if (!isLoading) {
         const post = getPost(id);
 
         const pastDate = new Date(post.created * 1000).getTime();
@@ -57,7 +56,7 @@ function PostPage() {
                         <h3>{post.title}</h3>
                         <p>{post.selftext}</p>
                         <img id="midImg" src={post.thumbnail} alt="" />
-                        <a href={post.url} target="_blank">Read Full Post</a>
+                        <a href={post.url} target="_blank" rel="noreferrer">Read Full Post</a>
                         <div id="postpage-info">
                             <p>Posted by {post.author}</p>
                             <p>{time}h Ago</p>
