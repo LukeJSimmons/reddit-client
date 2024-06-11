@@ -12,9 +12,9 @@ function Post(props) {
         <div className="Post">
             <div id="post-contents">
                 <div id="votes">
-                    <img id="up" className="arrow" src={Arrow} />
+                    <img id="up" className="arrow" src={Arrow} alt="Up Arrow" />
                     <p>{props.votes}</p>
-                    <img id="down" className="arrow" src={Arrow} />
+                    <img id="down" className="arrow" src={Arrow} alt="Down Arrow" />
                 </div>
                 <div>
                     <Link to={"/"+props.postId}><h3>{props.title}</h3></Link>
